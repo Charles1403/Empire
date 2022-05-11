@@ -6,6 +6,7 @@ function App() {
 
   return (
     <div className='App'>
+      <h1>Empire</h1>
        <div className="search">
         <input
           value={searchTerm}
