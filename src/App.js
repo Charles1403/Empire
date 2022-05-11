@@ -2,6 +2,7 @@
 import React, {useState, useEffect, createContext} from 'react'
 import MovieCard from './components/MovieCard/MovieCard';
 import MovieList from './components/MovieList/MovieList';
+import Search from './components/Search/Search';
 
 export const AppContext = createContext()
 
@@ -26,15 +27,7 @@ function App() {
   return (
     <div className='App'>
      <AppContext.Provider value={{searchTerm, setSearchTerm, movies, setMovies, searchMovies}}>
-      <h1>Empire</h1>
-       <div className="search">
-        <input
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          placeholder="Search for movies"
-        />
-        <button onClick={() => searchMovies(searchTerm)}>enter</button>
-      </div>
+      <Search/>
       <MovieList/>
     </AppContext.Provider>
     </div>
