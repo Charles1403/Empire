@@ -1,8 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+
+const API_URL = ' http://www.omdbapi.com/?i=tt3896198&apikey=6839fd78'
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
+   
+
+  useEffect(() => {
+    searchMovies("Batman");
+  }, []);
+
+  const searchMovies = async (title) => {
+    const response = await fetch(`${API_URL}&s=${title}`);
+    const data = await response.json();
+    console.log(data)
+    
+  };
 
   return (
     <div className='App'>
@@ -13,7 +27,7 @@ function App() {
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search for movies"
         />
-        <button>enter</button>
+        <button onClick={() => searchMovies(searchTerm)}>enter</button>
       </div>
     </div>
   )
