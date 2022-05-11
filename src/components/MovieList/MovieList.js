@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import { AppContext } from "../../App";
+import NotFound from "../NotFound/NotFound";
 
 
 const MovieList = () => {
@@ -14,9 +15,7 @@ const MovieList = () => {
                 ))}
                 </div>
             ) : (
-                <div className="empty">
-                <h2>No movies found</h2>
-                </div>
+               <NotFound/>
             )}
         </>
     )
