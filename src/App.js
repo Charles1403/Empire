@@ -1,4 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, {useState, useEffect} from 'react'
+import MovieCard from './components/MovieCard/MovieCard';
+
 
 const API_URL = ' http://www.omdbapi.com/?i=tt3896198&apikey=6839fd78'
 
@@ -8,14 +11,14 @@ function App() {
    
 
   useEffect(() => {
-    searchMovies("Batman");
-  }, []);
+   searchMovies("batman")
+  },[]);
 
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
     console.log(data)
-    
+    setMovies(data.Search)
   };
 
   return (
